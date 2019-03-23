@@ -5,7 +5,7 @@
   - niektóre foldery zawierają pliki _przyklad_, czyli ułatwienia/startery
 
 ## prezentacja online
-### [https://infoshareacademy.github.io/jjdzw2-materialy-html-css-bootstrap/](https://infoshareacademy.github.io/jjdzw2-materialy-html-css-bootstrap/)
+### [https://infoshareacademy.github.io/jjdzw2-materialy-html-css-bootstrap/](https://infoshareacademy.github.io/jjdzw2-materialy-html-css-bootstrap/index.html#/)
 _**Uwaga** jeśli link do wersji online nie działa, należy pobrać repozytorium i odpalić w przeglądarce plik **docs/index.html**_
 
 ## materiały
