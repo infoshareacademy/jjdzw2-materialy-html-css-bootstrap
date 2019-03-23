@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="Presentation">
+    <meta name="keywords" content="presentation">
+    <meta name="author" content="mat3e">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/white.css">
+    <link rel="stylesheet" href="css/idea.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/checkbox.css">
+    <style>
+        #header {
+            color: #10a8ae;
+            text-align: left;
+            line-height: .85;
+
+            padding-left: .1em;
+
+            border-left: solid .1em #10a8ae;
+        }
+
+        #header-logo {
+            width: 290px;
+            height: 105px;
+            background: url('img/logo.png') no-repeat;
+
+            top: -4em;
+            right: 0;
+            position: absolute;
+        }
+
+        #about-me {
+            background: rgba(255, 255, 255, .5);
+            margin-top: -5em;
+            list-style-type: none;
+            float: left;
+        }
+
+        .slides section img.pure-img {
+            border: none;
+            box-shadow: none;
+        }
+
+        code[contenteditable="true"] {
+            border: 0;
+            outline: 0;
+        }
+
+        .slides section pre {
+            margin-bottom: 0;
+        }
+
+        .slides section pre+button {
+            cursor: pointer;
+
+            font-size: .65em;
+            font-weight: 100;
+            -webkit-font-smoothing: antialiased;
+
+            color: white;
+            background: rgb(175, 30, 35);
+
+            padding: 0 3px 3px;
+            border: transparent;
+            border-radius: 4px;
+        }
+
+        .slides section a .stripped-img {
+            border: none;
+            margin: 0;
+            box-shadow: none;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .slides section a .stripped-img:hover {
+            border: none;
+            margin: 0;
+            box-shadow: none;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .slides section .comment {
+            margin-top: -20px;
+            margin-bottom: 20px;
+            color: gray;
+            display: block;
+        }
+
+        .reveal .slides section .fragment.fade-out.visible {
+            /* overriden for better hiding */
+            display: none;
+        }
+
+        #ht {
+            font-weight: bold;
+        }
+
+        #ht::before {
+            content: 'Hyper';
+            font-weight: normal;
+        }
+
+        .reveal section .highlight-1 {
+            background-color: yellow;
+        }
+
+        .reveal section .highlight-2 {
+            background-color: greenyellow;
+        }
+    </style>
+    <script>
+        let link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section data-background-color="#fff">
+                    <h1 id="header">HTML, CSS, Bootstrap</h1>
+                    <div id="header-logo"></div>
+                </section>
+                <section data-background-image="img/bg-hd.jpg" data-background-transition="zoom">
+                    <ul id="about-me">
+                        <li>
+                            <a href="https://www.linkedin.com/in/mateusz-chrzonstowski/">
+                                <i class="fab fa-linkedin"
+                                    style="color: #0077B5; background-color: #FFF; line-height: .75em"></i>
+                                /mateusz-chrzonstowski
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/_mat3e_">
+                                <i class="fab fa-twitter-square"
+                                    style="background-color: #1DA1F2; color: #FFF; line-height: .75em"></i>
+                                /_mat3e_
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/mat3e/">
+                                <i class="fab fa-github-square"
+                                    style="color: #24292E; background-color: #FFF; line-height: .75em"></i>
+                                /mat3e
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.reddit.com/user/_mat3e_">
+                                <i class="fab fa-reddit-square"
+                                    style="background-color: #FF4500; color: #FFF; line-height: .75em"></i>
+                                /_mat3e_
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h2>
+                    <span>Plan zajęć</span>
+                </h2>
+                <ol>
+                    <li class="fragment highlight-red">HTML</li>
+                    <li>CSS</li>
+                    <li>Selektory</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>Start</span>
+                </h2>
+                <ul>
+                    <li class="fragment">
+                        <strong>
+                            <code>H</code>
+                        </strong> =
+                        <span style="font-weight: bold">Hyper</span>Text
+                    </li>
+                    <li class="fragment">
+                        <strong>
+                            <code>T</code>
+                        </strong> =
+                        <span id="ht">Text</span>
+                    </li>
+                    <li class="fragment">
+                        <strong>
+                            <code>M</code>
+                        </strong> = Markup
+                    </li>
+                    <li class="fragment">
+                        <strong>
+                            <code>L</code>
+                        </strong> = Language
+                    </li>
+                    <li class="fragment">
+                        HTTP = Hypertext Transfer Protocol
+                    </li>
+                </ul>
+                <br>
+                <br>
+                <img class="fragment" style="display: block; margin: 0 auto; border: none; box-shadow: none;"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/170px-HTML5_logo_and_wordmark.svg.png">
+                <a class="fragment" style="display: block; text-align: center;"
+                    href="https://html5demos.com/">https://html5demos.com/</a>
+                <aside class="notes">
+                    html5 oprócz semantyki dodał kilka elementów, na zasadzie malutki znacznik i ogromne API (~canvas)
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Znaczniki (tagi)</span>
+                </h2>
+                <ul>
+                    <li class="fragment">Słowa kluczowe, niosące jakieś znaczenie, domyślny styl wyświetlania</li>
+                    <li class="fragment">Dookreślane przez atrybuty klucz=wartość</li>
+                </ul>
+                <pre class="fragment"><code class="html" data-trim>
+                    <header>
+                        <nav>...</nav>
+                    </header>
+                    <section>  
+                        <article>
+                            <header>
+                                <h2>...</h2>
+                            </header>
+                            <p></p>
+                        </article>
+                    </section>
+                    <footer>...</footer>
+                </code></pre>
+                <aside class="notes">Znaczniki mają semantyczny sens, są specjalne narzędzia, np. dla niewidomych, które
+                    to analizują</aside>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw1 w repo)</span>
+                </h2>
+                <ol style="font-size: .8em">
+                    <li class="fragment">Wygenerować projekt z szablonu
+                        <code>webapp-javaee7</code>
+                    </li>
+                    <li class="fragment">Zmienić konfigurację uruchamiania projektu (JBoss do pobrania z:
+                        <a href="http://wildfly.org/downloads/">http://wildfly.org/downloads/</a>)
+                        <img width="80%" src="img/config.png">
+                    </li>
+                    <li class="fragment">
+                        W pliku HTML dodać pole
+                        <code>input</code>, typu
+                        <code>email</code>. Co zrobić, żeby puste pole wyświetlało tekst
+                        <i>Podaj e-mail...</i>?
+                    </li>
+                    <li class="fragment">Co się dzieje gdy podajemy niepoprawny adres e-mail?</li>
+                </ol>
+                <aside class="notes">
+                    mvn archetype:generate -DarchetypeGroupId=org.codehaus.mojo.archetypes
+                    -DarchetypeArtifactId=webapp-javaee7 -DarchetypeVersion=1.1
+                    -Darchetype.interactive=false --batch-mode -DgroupId=com.infoshareacademy.java -DartifactId=demo-web
+                    -Dversion=1.0-SNAPSHOT -Dpackage=com.infoshareacademy.java
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Relacje pomiędzy elementami (XML/HTML)</span>
+                </h2>
+                <a class="fragment" href="https://www.w3schools.com/xml/navigate.gif"
+                    alt="https://www.w3schools.com/xml/navigate.gif" title="https://www.w3schools.com/xml/navigate.gif">
+                    <img src="img/navigate.gif">
+                </a>
+            </section>
+            <section>
+                <h2>
+                    <span>HTML = szkielet strony www</span>
+                </h2>
+                <a class="fragment" href="https://medium.freecodecamp.org/learn-html-in-5-minutes-ccd378d2ab72">
+                    <img width="80%" src="img/skeleton.png">
+                </a>
+            </section>
+            <section>
+                <h2>
+                    <span>Plan zajęć</span>
+                </h2>
+                <ol>
+                    <li>HTML</li>
+                    <li class="fragment highlight-red">CSS</li>
+                    <li>Selektory</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span class="highlight-2">Demo</span>
+                </h2>
+                <p>
+                    Akapit ma swój styl, podobnie jak wszystkie inne elementy HTML. Niektóre,
+                    <b>stare</b> elementy służyły do stylowania, zanim unormował się
+                    <span style="color: red">CSS</span>.
+                </p>
+                <aside class="notes">
+                    konsola przeglądarki
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Box Model</span>
+                </h2>
+                <a class="fragment" href="https://css-tricks.com/the-css-box-model/"
+                    title="https://css-tricks.com/the-css-box-model/">
+                    <img src="img/firebox.png">
+                </a>
+                <ul>
+                    <li class="fragment">Element można pozycjonować na różne sposoby</li>
+                    <li class="fragment">
+                        <code>margin</code> definiuje odstępy od elementu
+                    </li>
+                    <li class="fragment">
+                        <code>border</code> = ramka wokół elementu
+                    </li>
+                    <li class="fragment">
+                        <code>padding</code> = "margines wewnętrzny"; odstęp pomiędzy ramką a zawartością
+                    </li>
+                </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>position absolute, top, left; text-align</li>
+                        <li>niekótrzy ramkami rysują trójkąty</li>
+                    </ul>
+
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Dodawanie stylu</span>
+                </h2>
+                <ul>
+                    <li class="fragment">
+                        Najprościej i najmniej reużywalnie:
+                        <pre
+                            style="width: 100%; margin-top: 0;"><code class="html"><span style="color: red">czerwony tekst</span></code></pre>
+                    </li>
+                    <li class="fragment">
+                        Ogólniej – w sekcji
+                        <code>head</code>
+                        <pre style="margin-top: 0;"><code class="html" data-trim>
+                        &lt;head>
+                            <style>
+                                /* ... */
+                            </style>
+                        </code></pre>
+                    </li>
+                    <li class="fragment">
+                        Najlepiej – w osobnym pliku
+                        <ul>
+                            <li class="fragment">"Dociąganie" znowu w sekcji
+                                <code>head</code>:
+                                <pre style="width: 100%; margin-top: 0;"><code class="html" data-trim>
+                                    <link rel="stylesheet" type="text/css" href="theme.css"> 
+                                </code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw2 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Wygenerować aplikację, jak poprzednio
+                        <ul>
+                            <li class="fragment">Bonus: wykorzystać parametry uruchomieniowe m.in.
+                                <pre
+                                    style="width: 100%; margin-top: 0"><code>-DarchetypeGroupId=org.codehaus.mojo.archetypes -DarchetypeArtifactId=webapp-javaee7</code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fragment">Zmienić napis w nagłówku na "Kontakt"</li>
+                    <li class="fragment">Dociągnąć zewnętrzną bibliotekę CSS:
+                        <a href="https://fontawesome.com/start">fontawesome</a>
+                    </li>
+                    <li class="fragment">Utworzyć
+                        <a href="https://fontawesome.com/icons/github-square?style=brands">element</a> z odpowiednimi
+                        klasami:
+                        <pre
+                            style="width: 100%; margin-top: 0"><code class="html"><i class="fab fa-github-square"></i></code></pre>
+                        <ul>
+                            <li class="fragment">Bonus: powiększyć ikonkę</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">Element powinien być odnośnikiem do profilu na
+                        <a href="https://github.com/">GitHubie</a>
+                    </li>
+                    <li class="fragment">Zdefiniować styl (pseudoselektor
+                        <code>:hover</code>), żeby po najechaniu kursorem, element zmieniał kolor na czerwony
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2 style="margin: 0">
+                    <span>Transformacje</span>
+                </h2>
+                <table style="font-size: .9em">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="font-size: .5em" class="pretty p-round p-fill p-icon">
+                                    <input type="radio" name="styles"
+                                        onclick="Demo.style.cssText=this.parentElement.parentElement.parentElement.querySelector('code').textContent" />
+                                    <div class="state p-info">
+                                        <i class="icon mdi mdi-check"></i>
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <pre
+                                    style="width: 100%"><code class="css" data-trim contentEditable="true">transform: matrix(1, 2, 3, 4, 5, 6);</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="font-size: .5em" class="pretty p-round p-fill p-icon">
+                                    <input type="radio" name="styles"
+                                        onclick="Demo.style.cssText=this.parentElement.parentElement.parentElement.querySelector('code').textContent" />
+                                    <div class="state p-info">
+                                        <i class="icon mdi mdi-check"></i>
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <pre
+                                    style="width: 100%"><code class="css" data-trim contentEditable="true">transform: translate(120px, 50%);</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="font-size: .5em" class="pretty p-round p-fill p-icon">
+                                    <input type="radio" name="styles"
+                                        onclick="Demo.style.cssText=this.parentElement.parentElement.parentElement.querySelector('code').textContent" />
+                                    <div class="state p-info">
+                                        <i class="icon mdi mdi-check"></i>
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <pre
+                                    style="width: 100%"><code class="css" data-trim contentEditable="true">transform: scale(2, 0.5);</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="font-size: .5em" class="pretty p-round p-fill p-icon">
+                                    <input type="radio" name="styles"
+                                        onclick="Demo.style.cssText=this.parentElement.parentElement.parentElement.querySelector('code').textContent" />
+                                    <div class="state p-info">
+                                        <i class="icon mdi mdi-check"></i>
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <pre
+                                    style="width: 100%"><code class="css" data-trim contentEditable="true">transform: rotate(0.5turn);</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="font-size: .5em" class="pretty p-round p-fill p-icon">
+                                    <input type="radio" name="styles"
+                                        onclick="Demo.style.cssText=this.parentElement.parentElement.parentElement.querySelector('code').textContent" />
+                                    <div class="state p-info">
+                                        <i class="icon mdi mdi-check"></i>
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <pre
+                                    style="width: 100%"><code class="css" data-trim contentEditable="true">transform: skew(30deg, 20deg);</code></pre>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <img id="Demo" src="img/logo.png">
+                </div>
+                <div class="fragment">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function">Opis</a>
+                </div>
+                <aside class="notes">
+                    Że można turn, deg, że można kilka transformacji jednocześnie.
+                    <br>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix</a>
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Przejścia (transition)</span>
+                </h2>
+                <pre><style style="display: block; visibility: visible;" contenteditable="true">.anim {
+    width: 100px;
+    height: 100px;
+    background: red;
+    transition: transform 2s;
+}
+
+.anim:hover {
+    transform: scale(2, 2);
+}</style></pre>
+                <br>
+                <div class="anim" style="margin: 0 auto"></div>
+                <aside class="notes">
+                    <ul>
+                        <li>
+                            Krok dalej – animacje; nie ma co rozkminiać:
+                            <a href="https://daneden.github.io/animate.css/">https://daneden.github.io/animate.css/</a>
+                        </li>
+                        <li>transition: margin-right 2s ease-in-out .5s;</li>
+                        <li>transition: margin-right 4s, color 1s;</li>
+                    </ul>
+
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw3 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Rozbudować poprzedni program</li>
+                    <li class="fragment">Po najechaniu na ikonkę powinna nie tylko zmieniać kolor, ale też powiększać
+                        się</li>
+                    <li class="fragment">Zadbać o płynne przejście między powiększoną, a niepowiększoną ikonką</li>
+                    <li class="fragment">Bonus: dodać kolejne portale społecznościowe</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>CSS = wygląd strony www</span>
+                </h2>
+                <a class="fragment" href="https://medium.freecodecamp.org/learn-html-in-5-minutes-ccd378d2ab72">
+                    <img width="80%" src="img/css.png">
+                </a>
+            </section>
+            <section>
+                <h2>
+                    <span>Plan zajęć</span>
+                </h2>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li class="fragment highlight-red">Selektory</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                </ol>
+            </section>
+            <section>
+                <a href="http://www.standardista.com/css3/css-specificity/"
+                    title="http://www.standardista.com/css3/css-specificity/">
+                    <img style="border: none; box-shadow: none" width="55%" src="img/specificity.png">
+                </a>
+                <aside class="notes">
+                    specyficzność, priorytety; jak to samo – późniejszy bierze wszystko
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Selektory – 1/2</span>
+                </h2>
+                <ul>
+                    <li id="important">#important</li>
+                    <li class="test">.test</li>
+                    <li class="test">.test</li>
+                    <li>
+                        <a href="mailto:kontakt@infoshareacademy.com">e-mail</a> w środku
+                    </li>
+                </ul>
+                <pre style="line-height: 1; width: 100%"><code class="javascript" data-trim contentEditable="true" style="font-size: .85em">
+                        document.getElementById('important').classList.add('highlight-1');
+                    </code><code class="javascript fragment" data-trim contentEditable="true" style="font-size: .85em">
+                        document.querySelectorAll('.test').forEach(e => e.classList.add('highlight-1'));
+                    </code><code class="javascript fragment" data-trim contentEditable="true" style="font-size: .85em">
+                        document.querySelectorAll('ul li:first-child, ul li:last-child')
+                          .forEach(e => e.classList.add('highlight-1'));
+                    </code><code class="javascript fragment" data-trim contentEditable="true" style="font-size: .85em">
+                        document.querySelectorAll('li :first-child')
+                          .forEach(e => e.classList.add('highlight-1'));
+                    </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+
+                <pre><code class="javascript" data-trim contentEditable="true" style="font-size: .85em">
+                        document.querySelectorAll('*')
+                          .forEach(e => e.classList.remove('highlight-1'));
+                    </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+
+                <aside class="notes">
+                    <ol>
+                        <li>
+                            Cały
+                            <code>ul</code>
+                        </li>
+                        <li>
+                            <code>a[href^=mailto]</code>
+                        </li>
+                    </ol>
+                </aside>
+            </section>
+            <section>
+                <h2 style="margin: 0">
+                    <span>Selektory – 2/2</span>
+                </h2>
+                <ul id="first">
+                    <li>Ta lista ma
+                        <code class="html">id="first"</code>
+                    </li>
+                    <li>
+                        <a href="mailto:kontakt@infoshareacademy.com">e-mail</a>
+                    </li>
+                    <li>
+                        <a href="http://infoshareacademy.com/">infoShare Academy</a>
+                    </li>
+                    <li>
+                        Aktywności
+                        <ul>
+                            <li>infoShare Conference</li>
+                            <li>infoShare Academy</li>
+                        </ul>
+                    </li>
+                </ul>
+                <pre><code class="javascript" data-trim contentEditable="true">
+                    document.querySelectorAll('#first ul')
+                      .forEach(e => e.classList.add('highlight-1'));
+                </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+
+                <pre><code class="javascript" data-trim contentEditable="true">
+                    document.querySelectorAll('*')
+                      .forEach(e => e.classList.remove('highlight-1'));
+                </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+
+                <aside class="notes">
+                    <ol>
+                        <li>
+                            <code>code</code>
+                        </li>
+                        <li>
+                            <code>code, button</code>
+                        </li>
+                        <li>
+                            <code>#first > li > ul > li</code>
+                        </li>
+                        <li>
+                            <code>a:not([href^="mailto"])</code>
+                        </li>
+                        <li>
+                            <code>li:nth-child(even)</code>
+                        </li>
+                    </ol>
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw4 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Ściągnąć zaczęty przykład</li>
+                    <li class="fragment">Przy pomocy odpowiednich selektorów:
+                        <ul>
+                            <li class="fragment">Ustawić jasnoszare tło w co drugim wierszu tabeli</li>
+                            <li class="fragment">Dodać margines wewnętrzny (padding) wszystkim komórkom z ciała tabeli
+                            </li>
+                            <li class="fragment">Pochylić czcionkę w nagłówku tabeli</li>
+                            <li class="fragment">Dodać obramowanie komórek tabeli, w czarnym kolorze, o grubości 1px
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <p>
+                    <a href="https://kahoot.it/">
+                        <img src="img/kahoot.svg" class="pure-img" title="https://kahoot.it/">
+                    </a>
+                </p>
+            </section>
+            <section>
+                <h2>
+                    <span>Plan zajęć</span>
+                </h2>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Selektory</li>
+                    <li class="fragment highlight-red">JavaScript</li>
+                    <li>Bootstrap</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>JS – wstęp</span>
+                    </span>
+                </h2>
+                <ul>
+                    <li class="fragment" data-fragment-index="1">JS –
+                        <span class="fragment highlight-red" data-fragment-index="7">interpretowany</span> (np. w
+                        przeglądarce)</li>
+                    <li class="fragment" data-fragment-index="2">
+                        JS – dynamicznie typowany
+                        <ul>
+                            <li class="fragment" data-fragment-index="3">Typ ustalany w trakcie wykonywania (ang.
+                                <i>runtime</i>)</li>
+                            <li class="fragment" data-fragment-index="4">Wpisanie tekstu do zmiennej liczbowej? Ok,
+                                spoko</li>
+                            <li class="fragment" data-fragment-index="5">
+                                <q>JavaScript nie ma typów</q> –
+                                <strong>bullshit!</strong>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fragment" data-fragment-index="6">JS – język bazujący na obiektach (ang.
+                        <i>object-based</i>)</li>
+                </ul>
+                <aside class="notes">
+                    Nazwa po to, żeby przyciągnąć programistów Javy.
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Funkcja w funkcji, funkcje</span>
+                </h2>
+                <pre><code style="max-height: 40em; line-height: 1" class="javascript" data-trim contentEditable="true">
+                        (function () {
+                            ask();
+                            let welcome = 'world';
+                            alert(`Hello ${welcome}!`);
+
+                            const foo = () => { alert("foo"); }
+                            const bar = alert;
+
+                            bar('bar');
+                            setTimeout(foo, 1000);
+
+                            function ask() {
+                                let test = prompt('Give me an integer number: ');
+                                if(!test || !Number.isInteger(+test)) {
+                                    throw new Error('I wanted an integer number');
+                                }
+                                console.log(test);
+                            }
+                        })();
+                    </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+                <aside class="notes">
+                    <ul>
+                        <li>że bez IIFE wszystko globalne</li>
+                        <li>że to funkcja anonimowa</li>
+                        <li>że można z niej zwracać jakieś API; wtedy tylko 1 globalny obiekt</li>
+                        <li>podmienić strzałkę na funkcję</li>
+                        <li>pokazać anonimową w timeoucie</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Kwiatki, smaczki</span>
+                </h2>
+                <pre style="line-height: 1.1;"><code class="javascript" data-trim contentEditable="true">
+                    alert(1 == '1'); // true
+                    alert(1 === '1'); // false; number vs. string
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    alert(1 === new Number(1)); // false; number vs. Number
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    alert(1 == true); // true
+                    alert(-1 == false); // false; 0==false, 1==true
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    alert("" == false); // true
+                    alert(NaN == NaN); // false; ale !!NaN === false
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    alert(null == undefined); // true; === false
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    let test;
+                    alert(test === undefined); // true
+                </code><code class="javascript fragment" data-trim contentEditable="true">
+                    alert(1 + '11' + 1); // 1111
+                    alert('11' - 1); // 10
+                </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+            </section>
+            <section>
+                <h2>
+                    <span>Inne konstrukcje</span>
+                </h2>
+                <pre><code style="max-height: 40em; line-height: 1" class="javascript" data-trim contentEditable="true">
+                    class Rectangle {
+                        constructor(height, width) {
+                            this.height = height;
+                            this.width = width;
+                        }
+                        
+                        get area() {
+                            return this.height * this.width;
+                        }
+                    }
+
+                    for (let i = 0; i < 5; ++i) {
+                        const a = Math.floor((Math.random() * 10) + 1);
+                        const b = Math.floor((Math.random() * 10) + 1);
+                        const rect = new Rectangle(a, b);
+
+                        alert(`${a} x ${b} = ${rect.area}`);
+                    }
+                </code></pre>
+                <button onclick="controls.evalCode(this)">eval</button>
+                <aside class="notes">Że mógłbym przeciążyć toString</aside>
+            </section>
+            <section>
+                <h2>
+                    <span>Obiekty wbudowane</span>
+                </h2>
+                <p>
+                    <ul>
+                        <li class="fragment">
+                            <code>Number</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Array</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Math</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Date</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Error</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Window</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Navigator</code>
+                        </li>
+                        <li class="fragment">
+                            <code>History</code>
+                        </li>
+                        <li class="fragment">
+                            <code>Location</code>
+                        </li>
+                    </ul>
+                </p>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw5 w repo)</span>
+                </h2>
+                <ol style="font-size: .9em">
+                    <li class="fragment">Utworzyć gdzieś nowy plik,
+                        <code>index.html</code>
+                    </li>
+                    <li class="fragment">Wewnątrz pliku wpisywać kod JavaScript pomiędzy znacznikami
+                        <code class="html">&lt;script>&lt;/script></code>
+                    </li>
+                    <li class="fragment">Przy pomocy
+                        <code>Math.random</code> i
+                        <code>Math.floor</code> losować liczbę z przedziału 1-50
+                        <ul>
+                            <li class="fragment">W razie potrzeby doczytać coś o działaniu</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">Zapewnić interakcję przy pomocy
+                        <code>alert</code> oraz
+                        <code>prompt</code> – użytkownik ma odgadnąć wylosowaną liczbę, wprowadzając ją w okienku
+                    </li>
+                    <li class="fragment">W pętli sprawdzać liczbę użytkownika i podpowiadać ("za duża", "za mała") aż do
+                        zgadnięcia</li>
+                    <li class="fragment">Bonus: zliczać i wyświetlić na końcu ilość prób</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>DOM</span>
+                </h2>
+                <ul style="font-size: .9em">
+                    <li class="fragment">Document Object Model</li>
+                    <li class="fragment">Sposób reprezentacji HTML; każdy węzeł jako obiekt</li>
+                    <li class="fragment">JS i jQuery – manipulowanie tymi obiektami</li>
+                </ul>
+                <a class="fragment" href="https://en.wikipedia.org/wiki/Document_Object_Model">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/380px-DOM-model.svg.png
+                   "
+                        title="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/380px-DOM-model.svg.png">
+                </a>
+                <aside class="notes">
+                    JS w pierwotnym założeniu = manipulowanie DOM-em
+                </aside>
+            </section>
+            <section>
+                <h2>
+                    <span>DOM – drzewo</span>
+                </h2>
+                <img class="fragment" src="img/dom1.png">
+                <img class="fragment" src="img/dom2.png" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+                <h2>
+                    <span>Eventy</span>
+                </h2>
+                <ul>
+                    <li class="fragment">Powiadamianie użytkownika o jakimś zajściu</li>
+                    <li class="fragment">Eventy myszy:
+                        <code>click</code>,
+                        <code>dblclick</code>,
+                        <code>mouseover</code>
+                    </li>
+                    <li class="fragment">Eventy klawiatury:
+                        <code>keydown</code>,
+                        <code>keyup</code>
+                    </li>
+                    <li class="fragment">Eventy formatek:
+                        <code>blur</code>,
+                        <code>focus</code>,
+                        <code>change</code>
+                    </li>
+                    <li class="fragment">Eventy schowka:
+                        <code>copy</code>,
+                        <code>paste</code>
+                    </li>
+                    <li class="fragment">Duużo innych + informacje o poszczególnych eventach:
+                        <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">w3schools</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>
+                    <span>Nasłuchiwanie na eventy</span>
+                </h2>
+                <ul>
+                    <li class="fragment">
+                        HTML style:
+                        <ul>
+                            <li class="fragment">
+                                <code class="html" style="white-space:nowrap;"
+                                    data-trim>&lt;button id="button" onclick="funkcja()"&gt;</code>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        Vanilla JS:
+                        <ul>
+                            <li class="fragment">
+                                <code class="javascript">document.getElementById('button')
+                                    .addEventListener('click', funkcja);</code>
+                            </li>
+                            <li class="fragment">
+                                <code class="javascript">document.getElementById('button')
+                                    .onclick = funkcja;</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw6 w repo)</span>
+                </h2>
+                <ol style="font-size: .9em">
+                    <li class="fragment">Przerobić grę z poprzedniego punktu – przestać używać instrukcji
+                        <code>prompt</code>
+                    </li>
+                    <li class="fragment">Stworzyć pole
+                        <code>input</code> typu
+                        <code>number</code>
+                    </li>
+                    <li class="fragment">Dodać przycisk z tekstem "Zgaduję"</li>
+                    <li class="fragment">Przycisk powinien obsługiwać kliknięcie. Po kliknięciu – wczytanie, sprawdzenie
+                        liczby i wyświetlenie
+                        odpowiedniego komunikatu</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>Jak dociągać JavaScripty?</span>
+                </h2>
+                <ul>
+                    <li class="fragment">JavaScript = ogrom bibliotek</li>
+                    <li class="fragment">
+                        <i>Nowy dzień, nowy framework</i>
+                    </li>
+                    <li class="fragment">Lista
+                        <a href="https://github.com/sindresorhus/awesome">Awesome</a>
+                    </li>
+                    <li class="fragment">
+                        CDN =
+                        <dfn>Content Delivery Network</dfn>
+                    </li>
+                    <li class="fragment">
+                        <a href="https://www.npmjs.com/">npm</a>,
+                        <a href="https://bower.io/">bower</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>
+                    <span>JavaScript = ośrodek sterowania</span>
+                </h2>
+                <a href="https://medium.freecodecamp.org/learn-html-in-5-minutes-ccd378d2ab72">
+                    <img width="80%" src="img/js.png">
+                </a>
+            </section>
+            <section>
+                <h2>
+                    <span>Plan zajęć</span>
+                </h2>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Selektory</li>
+                    <li>JavaScript</li>
+                    <li class="fragment highlight-red">Bootstrap</li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>Bootstrap</span>
+                </h2>
+                <ul style="font-size: .9em">
+                    <li class="fragment">RWD (Responsive Web Design)</li>
+                    <li class="fragment">Mobile-first</li>
+                    <li class="fragment">Wiele zdefiniowanych klas i dobre praktyki CSS</li>
+                    <li class="fragment">Niektóre funkcje potrzebują jQuery i Popper JS</li>
+                </ul>
+                <pre class="fragment" style="width: 100%"><code class="html" data-trim contenteditable="true" style="font-size: .7em; line-height: 1.1">
+                &lt;!DOCTYPE html>
+                &lt;html lang="en"> <!-- pl -->
+                &lt;head>
+                    &lt;title>Bootstrap 4 Example&lt;/title>
+                    &lt;meta charset="utf-8">
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1">
+                    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+                    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">&lt;/script>
+                    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js">&lt;/script>
+                    &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js">&lt;/script>
+                &lt;/head>
+                &lt;body>
+                
+                <main class="container"> <!-- container-fluid dla pełnej szerokości -->
+                    <h1>My First Bootstrap Page</h1>
+                    <p>This is some text.</p>
+                </main>
+                
+                &lt;/body>
+                &lt;/html>
+                </code></pre>
+            </section>
+            <section>
+                <h2>
+                    <span>Grid system</span>
+                </h2>
+                <ul>
+                    <li class="fragment">Sposób na łatwe pozycjonowanie i skalowanie elementów</li>
+                    <li class="fragment">Stronę budujemy z wierszy, a każdy wiersz z 12 kolumn</li>
+                    <li class="fragment">12 pozwala łatwo podzielić na 3, na 4, na 2 części itd.</li>
+                    <li class="fragment">Dla różnych wielkości ekranów możemy inaczej dzielić kolumny
+                        <ul>
+                            <li class="fragment">Np. element zajmuje 12 kolumn dla telefonu i tylko 6 na tablecie</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>
+                    <span>Przykład</span>
+                </h2>
+                <iframe style="height: 150px; resize: both; overflow: auto; border: solid 3px black;"
+                    src="example.html"></iframe>
+                <br>
+                <pre><code class="html" style="font-size: .8em; line-height: 1" data-trim>
+                    &lt;main class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-3 bg-primary">
+                                ...
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 bg-warning">
+                                ...
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 bg-success">
+                                ...
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3 bg-danger">
+                                ...
+                            </div>
+                        </div>
+                </code></pre>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw7 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Przerobić stronkę z pierwszych ćwiczeń</li>
+                    <li class="fragment">Dociągnąć i zastosować bibliotekę Bootstrap do zbudowania szkieletu strony</li>
+                    <li class="fragment">Dodać dane kontaktowe, przykład
+                        <pre><code class="html" data-trim>
+                            <address>
+                                <strong>Twitter, Inc.</strong><br>
+                                1355 Market St, Suite 900<br>
+                                San Francisco, CA 94103<br>
+                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                            <address>
+                                <strong>Full Name</strong><br>
+                                <a href="mailto:#">first.last@example.com</a>
+                            </address>
+                        </code></pre>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw8 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Wrócić do przykładu z tabelką</li>
+                    <li class="fragment">Usunąć wszystkie dodane style, dociągnąć bibliotekę Bootstrap</li>
+                    <li class="fragment">Poeksperymentować z klasami
+                        <code>table</code>,
+                        <code>table-bordered</code>,
+                        <code>table-striped</code>,
+                        <code>table-hover</code>,
+                        <code>table-dark</code>
+                    </li>
+                    <li class="fragment">
+                        <a href="https://www.w3schools.com/bootstrap4/bootstrap_tables.asp">Dalsze inspiracje</a>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>
+                    <span>ćwiczenie (cw9 w repo)</span>
+                </h2>
+                <ol>
+                    <li class="fragment">Wrócić do przykładu ze zgadywaniem liczby</li>
+                    <li class="fragment">Dociągnąć i zastosować bibliotekę Bootstrap</li>
+                    <li class="fragment">Zastosować Bootstrapowe praktyki do
+                        <a href="https://www.w3schools.com/bootstrap4/bootstrap_forms.asp">formularzy</a>, przykład:
+                        <pre style="width: 100%"><code class="html" data-trim>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </code></pre>
+                    </li>
+                    <li class="fragment">Bonus: użyć
+                        <a href="https://www.w3schools.com/bootstrap4/bootstrap_modal.asp">modala</a> do wyświetlania
+                        komunikatów (wskazówka: JS +
+                        <code>innerHTML</code> elementu DOM)
+                    </li>
+                </ol>
+            </section>
+            <section data-background-image="img/stack.gif" data-background-size="contain">
+                <h2>
+                    <span class="fragment">Dziękuję za uwagę.</span>
+                </h2>
+            </section>
+        </div>
+    </div>
+    <script src="js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        let currLiveIndex = 0;
+
+        let controls = (function () {
+            Reveal.initialize({
+                history: true,
+                // - null: Media will only autoplay if data-autoplay is present
+                autoPlayMedia: null,
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+                transitionSpeed: 'default', // default/fast/slow
+                backgroundTransition: 'slide', // none/fade/slide/convex/concave/zoom
+                dependencies: [
+                    { src: 'js/classList.js', condition: function () { return !document.body.classList; } },
+
+                    { src: 'js/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'js/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+
+                    // Syntax highlight for <code> elements
+                    { src: 'js/highlight.js', callback: function () { hljs.initHighlightingOnLoad(); } },
+
+                    // Zoom in and out with Alt+click
+                    { src: 'js/zoom.js' },
+
+                    { src: 'notes/notes.js' },
+
+                    { src: 'js/math.js' }
+                ]
+            });
+
+            let sectionsToModify = document.querySelectorAll('.reveal .slides > section:not([data-background-image])');
+            for (let i = 0; i < sectionsToModify.length; ++i) {
+                let s = sectionsToModify[i];
+                s.setAttribute('data-background-image', 'http://infoshareacademy.com/images/logo.svg');
+                s.setAttribute('data-background-size', '240px');
+                s.setAttribute('data-background-position', 'top left');
+            }
+
+
+            return {
+                evalCode: function (btn) {
+                    eval(btn.previousElementSibling.innerText);
+                },
+                copyCode: function (btn, fullCode) {
+                    let ta = document.createElement('textarea');
+                    ta.style.position = 'absolute';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+
+                    let text = btn.previousElementSibling.innerText;
+                    if (!fullCode) {
+                        // we have just the content of the main function, we should add some code around
+                        text = `import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+${formatCodePiece(text, fullCode)}    }
+}`;
+                    }
+                    ta.textContent = text;
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+                }
+            }
+
+            function formatCodePiece(t, fullCode) {
+                let result = '';
+                let arr = t.split('\n');
+                if (fullCode) arr = arr.slice(0, arr.length - 1);
+                arr.forEach(element => {
+                    result += `        ${element}\n`;
+                });
+
+                return result;
+            }
+        })();
+    </script>
+</body>
+
+</html>
