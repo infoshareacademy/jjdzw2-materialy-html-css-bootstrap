@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="user-input"></label>
+                <input type="number" name="num" id="user-input" autofocus placeholder="Liczba...">
+            </div>
+            <button class="btn btn-primary" id="user-play" data-toggle="modal" data-target="#myModal">Zgaduj!</button>
+        </form>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Komunikat</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" id="placeholder"></div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const TOO_LESS = 'Twoja liczba jest za mała!';
+            const TOO_MUCH = 'Twoja liczba jest za duża!';
+            const ENTER_NUM = 'Podaj liczbę: ';
+
+            const TO_FIND = Math.floor(Math.random() * 50 + 1);
+
+            const IN_MODAL = document.getElementById('placeholder');
+            showModalWith('Wylosowano liczbę z przedziału 1-50. Odgadnij ją!');
+
+            const USER_INPUT = document.getElementById('user-input');
+            USER_INPUT.value = null;
+            let count = 0;
+
+            document.getElementById('user-play').addEventListener('click', (e) => {
+                // przycisk wewnątrz formularza automatycznie reaguje na klawisz "enter", ale stara się też wysłać formularz, czego nie chcemy
+                e.preventDefault();
+
+                let val = parseInt(USER_INPUT.value);
+
+                if (val > TO_FIND) {
+                    showModalWith(TOO_MUCH);
+                } else if (val < TO_FIND) {
+                    showModalWith(TOO_LESS);
+                } else {
+                    showModalWith(`Gratulacje! Zgadłeś za ${count} razem.`);
+                }
+            });
+
+            USER_INPUT.addEventListener('change', (e) => {
+                // najlepszy sposób na zwiększanie licznika prób - dopiero po zmianie wartości pola
+                ++count;
+            });
+
+            function showModalWith(text) {
+                IN_MODAL.innerHTML = text;
+                $('#myModal').modal({ show: true, focus: true });
+            }
+        })();
+    </script>
+</body>
+
+</html>

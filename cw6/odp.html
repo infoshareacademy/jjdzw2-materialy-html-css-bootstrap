@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+
+<body>
+    <form>
+        <input type="number" id="user-input" autofocus>
+        <button id="user-play">Zgaduj!</button>
+    </form>
+    <script>
+        (function () {
+            const TOO_LESS = 'Twoja liczba jest za mała!';
+            const TOO_MUCH = 'Twoja liczba jest za duża!';
+            const ENTER_NUM = 'Podaj liczbę: ';
+
+            const TO_FIND = Math.floor(Math.random() * 50 + 1);
+
+            alert('Wylosowano liczbę z przedziału 1-50. Odgadnij ją!');
+            const USER_INPUT = document.getElementById('user-input');
+            let count = 0;
+
+            document.getElementById('user-play').addEventListener('click', (e) => {
+                // przycisk wewnątrz formularza automatycznie reaguje na klawisz "enter", ale stara się też wysłać formularz, czego nie chcemy
+                e.preventDefault();
+
+                let val = parseInt(USER_INPUT.value);
+                ++count;
+
+                if (val > TO_FIND) {
+                    alert(TOO_MUCH);
+                } else if (val < TO_FIND) {
+                    alert(TOO_LESS);
+                } else {
+                    alert('MAMY TO!');
+                    alert(`Zgadłeś za ${count} razem.`);
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

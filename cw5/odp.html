@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+
+<body>
+    <script>
+        (function () {
+            const TOO_LESS = 'Twoja liczba jest za mała!';
+            const TOO_MUCH = 'Twoja liczba jest za duża!';
+            const ENTER_NUM = 'Podaj liczbę: ';
+
+            const TO_FIND = Math.floor(Math.random() * 50 + 1);
+
+            alert('Wylosowano liczbę z przedziału 1-50. Odgadnij ją!');
+            let val = getNumber();
+            let count = 1;
+
+            while (TO_FIND !== val) {
+                if (val > TO_FIND) {
+                    alert(TOO_MUCH);
+                } else {
+                    alert(TOO_LESS);
+                }
+
+                val = getNumber();
+                ++count;
+            }
+
+            alert('MAMY TO!');
+            alert(`Zgadłeś za ${count} razem.`);
+
+            function getNumber() {
+                return parseInt(prompt(ENTER_NUM));
+            }
+        })();
+    </script>
+</body>
+
+</html>

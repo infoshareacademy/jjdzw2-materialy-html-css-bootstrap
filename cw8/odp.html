@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Data urodzenia</th>
+                    <th>Ulubione danie</th>
+                </tr>
+            </thead>
+            <tbody id="placeholder">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        (function () {
+            let names = ['Janusz', 'Jan', 'Marek', 'Mirosław', 'Zdzisław', 'Jędrzej', 'Adam', 'Grzegorz', 'Bonifacy', 'Kamil', 'Paweł', 'Gaweł'];
+            let surnames = ['Nowak', 'Pawlak', 'Kowalski', 'Jakubowski', 'Nowakowski', 'Adamski', 'Opolski', 'z Bogdańca', 'Kowalewski', 'Kowal', 'Wiśniewski', 'Abacki', 'Dębski', 'Lipski'];
+            let favs = ['Danie w mordę', 'Kebab', 'Schabowy', 'Pierogi ruskie', 'Gołąbki', 'Pizza', 'Naleśniki', 'Chleb posmarowany nożem', 'Lasagne', 'Szpinak', 'Kluski z rosołem', 'Figa z makiem'];
+
+            let placeholder = document.getElementById('placeholder');
+            for (let i = 0; i < 15; ++i) {
+                placeholder.appendChild(htmlToElement(`<tr>
+                    <td>${names[getRandomMax(names.length)]}</td>
+                    <td>${surnames[getRandomMax(surnames.length)]}</td>
+                    <td>${getRandomMax(28, 1).padStart(2, '0')}-${getRandomMax(12, 1).padStart(2, '0')}-${getRandomMax(2000, 1940)}</td>
+                    <td>${favs[getRandomMax(favs.length)]}</td>
+                </tr>`));
+            }
+
+            function getRandomMax(max, min = 0) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min + '';
+            }
+
+            function htmlToElement(html) {
+                var template = document.createElement('template');
+                html = html.trim();
+                template.innerHTML = html;
+                return template.content.firstChild;
+            }
+        })();
+    </script>
+</body>
+
+</html>

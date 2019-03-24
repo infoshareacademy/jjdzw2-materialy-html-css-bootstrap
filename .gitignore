@@ -1,7 +1,6 @@
 out/
 target/
 !.mvn/wrapper/maven-wrapper.jar
-cw*/odp*
 
 ### STS ###
 .apt_generated
@@ -29,3 +28,4 @@ plan*
 założenia*
 założenia-jse1*
 .DS_Store
+podsumowanie.*
